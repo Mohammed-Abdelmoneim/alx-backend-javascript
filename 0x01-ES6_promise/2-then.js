@@ -1,29 +1,9 @@
 export default function handleResponseFromAPI(promise) {
-  return new Promise((resolve, reject) => {
-    const obj = {
+  return promise
+    .then(() => ({
       status: 200,
-      body: 'Success',
-    };
-    if (promise) {
-      resolve(obj);
-    } else {
-      reject(Error(''));
-    }
-  });
+      body: 'success',
+    }))
+    .catch(() => Error())
+    .finally(() => console.log('Got a response from the API'));
 }
-
-const promise = handleResponseFromAPI();
-
-function handleResolve(val) {
-  return val;
-}
-
-function handleReject(reason) {
-  return reason;
-}
-
-function handleEveryResolve() {
-  console.log('Got a response from the API');
-}
-
-promise.then(handleResolve).catch(handleReject).finally(handleEveryResolve);
