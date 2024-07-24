@@ -14,13 +14,16 @@ export default function handleResponseFromAPI(promise) {
 
 const promise = handleResponseFromAPI();
 
-promise
-  .then((val) => {
-    console.log(val);
-  })
-  .catch((err) => {
-    console.error('Error:', err); // Handle or log the error appropriately
-  })
-  .finally(() => {
-    console.log('Got a response from the API'); // Executed when the promise settles
-  });
+function handleResolve(val) {
+  console.log(val);
+}
+
+function handleReject(reason) {
+  return reason;
+}
+
+function handleEveryResolve() {
+  console.log('Got a response from the API');
+}
+
+promise.then(handleResolve).catch(handleReject).finally(handleEveryResolve);
