@@ -15,7 +15,7 @@ export default function handleResponseFromAPI(promise) {
 const promise = handleResponseFromAPI();
 
 function handleResolve(val) {
-  console.log(val);
+  return val;
 }
 
 function handleReject(reason) {
