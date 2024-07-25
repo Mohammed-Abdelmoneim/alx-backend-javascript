@@ -1,9 +1,9 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this.isValid();
     this._name = name;
     this._length = length;
     this._students = students;
+    this.isValid();
   }
 
   isValid() {
@@ -24,6 +24,7 @@ export default class HolbertonCourse {
 
   set name(newName) {
     this._name = newName;
+    this.isValid();
   }
 
   get length() {
@@ -32,6 +33,7 @@ export default class HolbertonCourse {
 
   set length(newLen) {
     this._length = newLen;
+    this.isValid();
   }
 
   get students() {
@@ -40,5 +42,6 @@ export default class HolbertonCourse {
 
   set students(newSt) {
     this._students = newSt;
+    this.isValid();
   }
 }
