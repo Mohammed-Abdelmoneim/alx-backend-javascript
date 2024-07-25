@@ -10,7 +10,7 @@ export default class HolbertonCourse {
     if (typeof this._name !== 'string') {
       throw new Error('Name must be a string');
     }
-    if (typeof this._length !== 'number') {
+    if (typeof this._length !== 'number' || Number.isNaN(this._length)) {
       throw new Error('Length must be a number');
     }
     if (!Array.isArray(this._students)) {
